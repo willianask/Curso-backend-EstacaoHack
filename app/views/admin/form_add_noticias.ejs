@@ -1,5 +1,5 @@
-<%- include ('../Common/header')%>
-<%- include ('../Common/menu')%>    
+<%- include ('../common/header')%>
+<%- include ('../common/menu')%>    
 
 <main class="mb-4">
     <div class="bg-light p-5 mb-4">
@@ -9,18 +9,18 @@
         </div>
     </div>
     <div class="container">
-        <form action="">
+        <form action="/admin/salvar-noticia" method="POST">
             <div class="mb-3">
                 <label for="" class="form-lable"><Título></label>
-                <input type="text" class="form-control" placeholder="Titulo da noticia" required>
+                <input type="text" class="form-control" placeholder="Titulo da noticia" name="titulo" required>
             </div>
             <div class="mb-3">
                 <label class="form-lable" for="">Conteúdo</label>
-                <textarea class="form-control" name="" id="conteudo" cols="30" rows="10" required></textarea>
+                <textarea class="form-control" name="conteudo" id="conteudo" cols="30" rows="10" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-lg w-100">Criar</button>
         </form>
     </div>
 </main>
         
-<%- include ('../Common/footer')%>
+<%- include ('../common/footer')%>

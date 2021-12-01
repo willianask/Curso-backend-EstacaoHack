@@ -8,16 +8,35 @@
 //npm install -g nodemon
 //Quinta etapa instalar o ejs que faz a reinderização dos arquivos HTML
 //npm install ejs
+//npm install pg
+//npm install express-session
+//deploy:
+//sudo snap install --classic heroku
+//heroku login
+//autentica no navegador
+
 const express = require('express')
 const app = express ()
+
+const session = require('express-session')
 
 //define o motor de views como sendo o EJS
 app.set('view engine','ejs')
 
 //configurar o caminho das views
-app.set('views','./App/Views')
+app.set('views','./app/views')
 
 //Configuração dos arquivos estáticos
-app.use(express.static('./App/Public'))
+app.use(express.static('./app/public'))
+
+//configura o bodyparse do express
+app.use(express.urlencoded({extended: true}))
+
+//configuração do express-session
+app.use(session({
+    secret: 'UW9u{Zw/K!mY)#S/', // chave de segurança usada na assinatura dos identificadores da sessão
+    resave: false, //otimiza para que a sessão não seja salva novamente
+    saveUninitialized: false, //otimiza o uso do armazenamento no servidor
+}))
 
 module.exports = app
